@@ -23,7 +23,7 @@ public class PostController {
 //    @ResponseBody
     public String individualPost(@PathVariable long id, Model model){
 //        return "Your ID is " + id + ".";
-        Post post = new Post(1,"title", "Here is my title");
+        Post post = new Post(1,"title", "Here is my content");
         model.addAttribute("post", post);
         return "posts/show";
     }
