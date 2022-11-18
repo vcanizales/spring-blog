@@ -26,4 +26,6 @@ public class RollDiceController {
         model.addAttribute("n", n);
         return "RollGuess";
     }
+
+
 }

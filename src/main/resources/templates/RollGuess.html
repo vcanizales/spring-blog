@@ -15,9 +15,16 @@
       <li><a href="/roll-dice/6">6</a></li>
     </ul>
 
-  <h1>You guessed <span th:text="${n}"></span> and the number rolled is a <span th:text="${roll}"></span></h1>
-  <h1 th:if="${n}">You guessed correctly!</h1>
-  <h1 th:if="${roll}">You guessed incorrectly.</h1>
+<!--  <h1>You guessed <span th:text="${n}"></span> and the number rolled is a <span th:text="${roll}"></span></h1>-->
+<!--  <h1 th:if="${n}">You guessed correctly!</h1>-->
+<!--  <h1 th:if="${roll}">You guessed incorrectly.</h1>-->
+
+<div th:if="${n}">
+  <p>You guessed a <span th:text="${n}">.</span></p>
+  <p>The number was <span th:text="${roll}"></span>.</p>
+  <p th:if="${n} == ${roll}">You guessed right!</p>
+  <p th:if="${n} != ${roll}">You guessed <span style="font-weight: bolder">WRONG!</span></p>
+</div>
 
 </body>
 </html>
