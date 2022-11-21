@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Post Form</title>
+    <link rel="stylesheet" href="/create.css">
 </head>
 <body>
-<fieldset>
-  <form action="/posts/new">
-    <label for="fpost">First post:</label><br>
-    <input type="text" id="fpost" name="fpost">
-    <input type="submit" name="submit" value="submit">
-  </form>
-</fieldset>
+
+<div>
+    <form action="/posts/create" method="post">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="body">Body:</label><br>
+        <input type="text" id="body" name="body"><br>
+        <input type="submit" name="submit" value="submit">
+    </form>
+</div>
+
 </body>
 </html>
