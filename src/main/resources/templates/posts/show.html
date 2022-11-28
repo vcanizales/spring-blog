@@ -8,6 +8,7 @@
 <div th:if="${post}">
     <h1 th:text="${post.title}">SHOW</h1>
     <p th:text="${post.body}"></p>
+    <p th:text="${post.getUser().getEmail()}"></p>
 </div>
 </body>
 </html>
