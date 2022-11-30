@@ -5,22 +5,18 @@
     <title>Edit Post</title>
 </head>
 <body>
+<h1>Edit this post!</h1>
 
 <div>
-  <form action="/posts/{id}/edit" method="post" th:object="${post}">
-      <label for="edit_title">Edit title:</label>
-      <input type="text" id="edit_title" name="edit_title" th:field="*{edit_title}"><br>
-      <label for="edit_body">Edit body:</label>
-      <textarea id="edit_body" name="edit_body" th:field="*{edit_body}"></textarea><br>
-
-
-
-
-
+  <form th:action="@{/posts/__${id}__/edit}" th:method="post" th:object="${post}">
+      <label for="title">Edit title:</label>
+      <input type="text" id="title" name="title" th:field="*{title}"><br>
+      <label for="body">Edit body:</label>
+      <textarea id="body" name="body" th:field="*{body}"></textarea><br>
+      <button type="submit">Change</button>
   </form>
-
-
 </div>
-
 </body>
 </html>
+
+

@@ -4,7 +4,6 @@ import com.codeup.springblog.models.Post;
 import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
-import org.springframework.beans.factory.support.SecurityContextProvider;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -51,11 +50,6 @@ public class PostController {
         List<Post> posts = postDao.findAll();
         model.addAttribute("posts", posts);
         model.addAttribute("user", new User());
-//            (@RequestParam(name="title")String title, @RequestParam(name="body")String body){
-//        Post post = new Post(title, body);
-//        User user = (User) userDao.findAll().get(0);
-//        post.setUser(user);
-//        postDao.save(post);
         return "redirect:";
     }
 
@@ -70,6 +64,21 @@ public class PostController {
     @PostMapping("/users")
     public String addUser(@ModelAttribute User user){
         userDao.save(user);
+        return "redirect:/posts";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String editPost(@PathVariable long id, Model model){
+        model.addAttribute("post", postDao.findById(id));
+        return "posts/edit";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String editPost(@ModelAttribute Post post){
+//        User user = userDao.getById(1L);
+//        post.setUser(user);
+//        ^^^this will show one post with the email of the user that made the post
+        postDao.save(post);
         return "redirect:/posts";
     }
 

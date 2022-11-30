@@ -6,9 +6,10 @@
 </head>
 <body>
 <div th:if="${post}">
-    <h1 th:text="${post.title}">SHOW</h1>
-    <p th:text="${post.body}"></p>
+    <h1 th:text="${post.getTitle()}"></h1>
+    <p th:text="${post.getBody()}"></p>
     <p th:text="${post.getUser().getEmail()}"></p>
 </div>
+    <p th:unless="${post}">Could not find post</p>
 </body>
 </html>
