@@ -47,22 +47,28 @@ public class PostController {
     }
 
     @PostMapping("/create")
-    public String addPost(@RequestParam(name="title")String title, @RequestParam(name="body")String body){
-        Post post = new Post(title, body);
-        User user = (User) userDao.findAll().get(0);
-        post.setUser(user);
-        postDao.save(post);
+    public String addPost(Model model){
+        List<Post> posts = postDao.findAll();
+        model.addAttribute("posts", posts);
+        model.addAttribute("user", new User());
+//            (@RequestParam(name="title")String title, @RequestParam(name="body")String body){
+//        Post post = new Post(title, body);
+//        User user = (User) userDao.findAll().get(0);
+//        post.setUser(user);
+//        postDao.save(post);
         return "redirect:";
     }
 
-
+//    @GetMapping("/{id}/create")
+//    public String editPost(Model model){
+//        model.addAttribute()
+//    }
 
     @GetMapping("/users")
     public String createUser(){return "/posts/users";}
 
     @PostMapping("/users")
-    public String addUser(@RequestParam(name="username")String username, @RequestParam(name="email")String email, @RequestParam(name="password")String password){
-        User user = new User(username, email, password);
+    public String addUser(@ModelAttribute User user){
         userDao.save(user);
         return "redirect:/posts";
     }
