@@ -5,7 +5,9 @@
     <title>Posts Index</title>
 </head>
 <body>
-
+    <form th:action="@{/logout}" th:method="post">
+        <button>Logout</button>
+    </form>
 <div th:each="post : ${posts}">
     <h1 th:text="${post.title}"></h1>
     <p th:text="${post.body}"></p>
