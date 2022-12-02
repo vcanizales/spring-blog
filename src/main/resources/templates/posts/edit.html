@@ -14,12 +14,14 @@
     Username: <span th:text="${#authentication.principal.username}"/>
     Email: <span th:text="${#authentication.principal.email}"/>
 </div>
-
+<br>
 <div>
   <form th:action="@{/posts/__${id}__/edit}" th:method="post" th:object="${post}">
       <label for="title">Edit title:</label>
       <input type="text" id="title" name="title" th:field="*{title}"><br>
+      <br>
       <label for="body">Edit body:</label>
+      <br>
       <textarea id="body" name="body" th:field="*{body}"></textarea><br>
       <button type="submit">Change</button>
   </form>

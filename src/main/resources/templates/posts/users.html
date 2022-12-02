@@ -6,24 +6,13 @@
 </head>
 <body>
 
-<h2>Add a user:</h2>
-  <form action="/posts/users" method="post">
-    <label for="username">Name:</label>
-    <input type="text" name="username" id="username">
-    <label for="email">Email:</label>
-    <input type="text" name="email" id="email">
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
-    <input type="submit" value="Enter">
-  </form>
-
-<!--<div th:if="${users.size() > 0}">-->
-<!--  <h2>List of Users:</h2>-->
-<!--  <ul>-->
-<!--    <li th:each="user : ${users}"-->
-<!--        th:text="${user.name}"></li>-->
-<!--  </ul>-->
-<!--</div>-->
+<div th:if="${users.size() > 0}">
+  <h2>List of Users:</h2>
+  <ul>
+    <li th:each="user : ${users}"
+        th:text="${user.name}"></li>
+  </ul>
+</div>
 
 </body>
 </html>
