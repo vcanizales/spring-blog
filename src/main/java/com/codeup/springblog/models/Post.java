@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Table(name="posts")
 public class Post {
 
+    public String getTitle;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
